@@ -4,8 +4,7 @@ if ('ondeviceorientationabsolute' in window) {
   window.addEventListener('deviceorientation', handleOrientation.bind(this, 'rel'));
 }
 
-function getOrientation(type, event) {
-  alert('type: ' + type + ', abs: ' + (event.absolute ? 'oui' : 'non' ) + ', alpha: ' + Math.round(event.alpha) + ', ' + Object.keys(event).join(', '));
+function getOrientation(event) {
   if (event.absolute) {
     return event.alpha;
   } else if (event.hasOwnProperty('webkitCompassHeading')) {
@@ -14,7 +13,9 @@ function getOrientation(type, event) {
   }
 }
 
-function handleOrientation(event) {
+function handleOrientation(type, event) {
+  alert('type: ' + type + ', abs: ' + (event.absolute ? 'oui' : 'non' ) + ', alpha: ' + Math.round(event.alpha) + ', ' + Object.keys(event).join(', '));
+
   const orientation = getOrientation(event);
   if (typeof orientation !== 'undefined') {
     rotatePlayer(orientation);
