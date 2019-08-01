@@ -1,0 +1,33 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-player-marker {
+  position: relative;
+}
+
+.c-player-marker__icon {
+	height: 12px;
+	width: 12px;
+	border-radius: 50%;
+	background-color: #bd10e0;
+}
+
+.c-player-marker__vision::before {
+  position: absolute;
+  left: calc(50% - 3px);
+  bottom: calc(50% - 3px);
+	height: 18px;
+	width: 18px;
+	border-radius: 0 100% 0 0;
+	background: linear-gradient(to bottom left, transparent, #bd10e0);
+  transform-origin: bottom left;
+}
