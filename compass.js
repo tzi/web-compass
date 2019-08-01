@@ -17,11 +17,12 @@ function handleOrientation(type, event) {
   alert('type: ' + type + ', abs: ' + (event.absolute ? 'oui' : 'non' ) + ', alpha: ' + Math.round(event.alpha) + ', ' + Object.keys(event).join(', '));
 
   const orientation = getOrientation(event);
-  if (typeof orientation !== 'undefined') {
-    rotatePlayer(orientation);
+  if (typeof orientation === 'undefined') {
+    alert('Could not retrieve absolute orientation');
+    return false;
   }
   
-  alert('Could not retrieve absolute orientation');
+  rotatePlayer(orientation);
 }
 
 const vision = document.querySelector('.c-player-marker__vision');
