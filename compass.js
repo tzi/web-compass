@@ -1,7 +1,7 @@
 if ('ondeviceorientationabsolute' in window) {
-window.addEventListener('deviceorientationabsolute', handleOrientation);
+  window.addEventListener('deviceorientationabsolute', handleOrientation);
 } else if ('ondeviceorientation' in window) {
-window.addEventListener('deviceorientation', handleOrientation);
+  window.addEventListener('deviceorientation', handleOrientation);
 }
 
 function getOrientation(event) {
@@ -22,12 +22,12 @@ function handleOrientation(event) {
   alert('Could not retrieve absolute orientation');
 }
 
-const player = document.querySelector('.c-player-marker__icon');
+const vision = document.querySelector('.c-player-marker__vision');
 const log = document.querySelector('.log');
 
 function rotatePlayer(orientation) {
-    player.style.transform = `rotate(${315 - orientation}deg)`;
-    log.innerHTML = orientation + ' deg ';
+  vision.style.transform = `rotate(${315 - orientation}deg)`;
+  log.innerHTML = orientation + ' deg ';
 };
 
 rotatePlayer(0);
