@@ -1,10 +1,11 @@
 if ('ondeviceorientationabsolute' in window) {
-  window.addEventListener('deviceorientationabsolute', handleOrientation);
+  window.addEventListener('deviceorientationabsolute', handleOrientation.bind(this, 'abs');
 } else if ('ondeviceorientation' in window) {
-  window.addEventListener('deviceorientation', handleOrientation);
+  window.addEventListener('deviceorientation', handleOrientation.bind(this, 'rel'));
 }
 
-function getOrientation(event) {
+function getOrientation(type, event) {
+  alert('type: ' + type + ', abs: ' + (event.absolute ? 'oui' : 'non' ) + ', alpha: ' + Math.round(event.alpha) + ', Object.kes(event).join(', '));
   if (event.absolute) {
     return event.alpha;
   } else if (event.hasOwnProperty('webkitCompassHeading')) {
