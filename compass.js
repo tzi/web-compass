@@ -1,8 +1,7 @@
 if ('ondeviceorientationabsolute' in window) {
   window.addEventListener('deviceorientationabsolute', handleOrientation.bind(this, 'abs'));
-} else if ('ondeviceorientation' in window) {
-  window.addEventListener('deviceorientation', handleOrientation.bind(this, 'rel'));
 }
+window.addEventListener('deviceorientation', handleOrientation.bind(this, 'rel'));
 
 function getOrientation(event) {
   if (event.absolute) {
@@ -14,7 +13,7 @@ function getOrientation(event) {
 }
 
 function handleOrientation(type, event) {
-  alert('type: ' + type + ', abs: ' + (event.absolute ? 'oui' : 'non' ) + ', alpha: ' + Math.round(event.alpha) + ', ' + Object.keys(event).join(', '));
+  alert('type: ' + type + ', abs: ' + event.absolute + ', alpha: ' + event.alpha + ', ' + Object.keys(event).join(', '));
 
   const orientation = getOrientation(event);
   if (typeof orientation === 'undefined') {
