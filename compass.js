@@ -1,5 +1,5 @@
 if ('ondeviceorientationabsolute' in window) {
-  window.addEventListener('deviceorientationabsolute', handleOrientation.bind(this, 'abs');
+  window.addEventListener('deviceorientationabsolute', handleOrientation.bind(this, 'abs'));
 } else if ('ondeviceorientation' in window) {
   window.addEventListener('deviceorientation', handleOrientation.bind(this, 'rel'));
 }
