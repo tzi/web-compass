@@ -5,7 +5,7 @@ if ('ondeviceorientationabsolute' in window) {
 }
 
 function getOrientation(type, event) {
-  alert('type: ' + type + ', abs: ' + (event.absolute ? 'oui' : 'non' ) + ', alpha: ' + Math.round(event.alpha) + ', Object.kes(event).join(', '));
+  alert('type: ' + type + ', abs: ' + (event.absolute ? 'oui' : 'non' ) + ', alpha: ' + Math.round(event.alpha) + ', ' + Object.keys(event).join(', '));
   if (event.absolute) {
     return event.alpha;
   } else if (event.hasOwnProperty('webkitCompassHeading')) {
